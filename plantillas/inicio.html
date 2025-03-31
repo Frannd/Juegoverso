@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<h2>Fecha Actual: {{ fecha_actual|date:"D, d M Y H:i:s" }}</h2>
+    <ul>
+        {% for juego in videojuegos %}
+            <li>
+                <h3>{{ juego.titulo }}</h3>
+                <!-- Mostrar imagen -->
+                {% if juego.imagen %}
+                    <img src="{{ juego.imagen.url }}" alt="{{ juego.titulo }}" width="500">
+                {% endif %}
+
+                <p><strong>Descripción:</strong> {{ juego.descripcion }}</p>
+                <p><strong>Fecha de Lanzamiento:</strong> {{ juego.fecha_lanzamiento|default:"No disponible" }}</p>
+                <p><strong>Precio:</strong> ${{ juego.precio }}</p>
+
+                <!-- Mostrar video -->
+                {% if juego.video %}
+                    <h4>Trailer:</h4>
+                    <iframe width="560" height="315" src="{{ juego.video }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+
+                
+            </li>
+        {% empty %}
+            <p>No hay videojuegos disponibles.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,31 @@
+<html>
+    {% load static %}
+<head>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <h1>Juegoverso</h1>
+    <h3>Tu rincon de informacion sobre videojuegos</h3>
+    <h2>Novedades</h2>
+    {% block content %} 
+
+    {% endblock %}
+
+    <p>¡Contactanos!</p>
+    <p>Juegoverso@gmail.com</p>
+    
+</body>
+<nav>
+    <ul>
+        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'mision' %}">Misión</a></li>
+        <li><a href="{% url 'vision' %}">Visión</a></li>
+        <li><a href="{% url 'acerca_de' %}">Acerca de</a></li>
+    </ul>
+</nav>
+
+</html>

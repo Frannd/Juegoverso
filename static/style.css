@@ -1,0 +1,92 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto en color gris claro */
+    margin: 0;
+    padding: 0;
+    text-align: auto;
+}
+
+/* Encabezados */
+h1 {
+    color: #ff5733; /* Naranja brillante para el título */
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+/* Títulos de los videojuegos */
+h3 {
+    color: #ffffff; /* Blanco para los títulos */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Enlaces */
+a {
+    color: #ff5733;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Listado de videojuegos */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #1f1f1f; /* Fondo oscuro para cada videojuego */
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre cada item */
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Imagen */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Video */
+iframe {
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7); /* Sombra más fuerte */
+    margin-top: 20px;
+}
+
+/* Párrafos */
+p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Botones */
+button {
+    background-color: #ff5733; /* Naranja brillante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e74c3c; /* Cambio de color al pasar el ratón */
+}
