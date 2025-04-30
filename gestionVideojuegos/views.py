@@ -20,7 +20,14 @@ def saludo(request): #primera vista
 def inicio(request):
     lista_videojuegos = videojuegos.objects.all()
     fecha_actual = datetime.now()
+    for juego in lista_videojuegos:
+        if juego.precio == 0:
+            juego.precio_display = "Gratis"
+        else:
+            juego.precio_display = f"${juego.precio:.2f}"
+
     return render(request, 'inicio.html',{'videojuegos': lista_videojuegos, 'fecha_actual': fecha_actual})
+
 def mision(request):
     return render(request, 'mision.html')
 

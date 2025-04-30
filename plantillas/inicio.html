@@ -4,29 +4,35 @@
 
 {% block content %}
 <h2>Fecha Actual: {{ fecha_actual|date:"D, d M Y H:i:s" }}</h2>
-    <ul>
-        {% for juego in videojuegos %}
-            <li>
-                <h3>{{ juego.titulo }}</h3>
-                <!-- Mostrar imagen -->
+<div class="videojuegos-container">
+    {% for juego in videojuegos %}
+        <div class="juego-card" onclick="abrirModal('{{ juego.id }}')">
+            <h3>{{ juego.titulo }}</h3>
+            {% if juego.imagen %}
+                <img src="{{ juego.imagen.url }}" alt="{{ juego.titulo }}">
+            {% endif %}
+        </div>
+            
+        <!--Modal-->
+        <div id="modal-{{ juego.id }}" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal('{{ juego.id }}')">&times;</span>
+                <h2>{{ juego.titulo }}</h2>
                 {% if juego.imagen %}
-                    <img src="{{ juego.imagen.url }}" alt="{{ juego.titulo }}" width="500">
+                    <img src="{{ juego.imagen.url }}" alt="{{ juego.titulo }}">
                 {% endif %}
-
                 <p><strong>Descripción:</strong> {{ juego.descripcion }}</p>
                 <p><strong>Fecha de Lanzamiento:</strong> {{ juego.fecha_lanzamiento|default:"No disponible" }}</p>
-                <p><strong>Precio:</strong> ${{ juego.precio }}</p>
+                <p><strong>Precio:</strong> {{ juego.precio_display }}</p>
 
-                <!-- Mostrar video -->
                 {% if juego.video %}
                     <h4>Trailer:</h4>
                     <iframe width="560" height="315" src="{{ juego.video }}" frameborder="0" allowfullscreen></iframe>
                 {% endif %}
-
-                
-            </li>
-        {% empty %}
-            <p>No hay videojuegos disponibles.</p>
-        {% endfor %}
-    </ul>
+            </div>
+        </div>
+    {% empty %}
+        <p>No hay videojuegos disponibles.</p>
+    {% endfor %}
+</div>
 {% endblock %}

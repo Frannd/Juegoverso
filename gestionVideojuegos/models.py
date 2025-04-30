@@ -7,7 +7,7 @@ class videojuegos(models.Model):
     descripcion = models.TextField(default="Sin descripción") 
     fecha_lanzamiento = models.DateField(null=True, blank=True)
     imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
-    precio = models.IntegerField()
+    precio = models.DecimalField(max_digits=5, decimal_places=2)
     video = models.URLField(null=True, blank=True)
 
     def __str__(self):
